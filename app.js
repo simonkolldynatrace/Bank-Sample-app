@@ -12,6 +12,7 @@ var auth = require('./routes/auth');
 var register = require('./routes/register');
 var member = require('./routes/member');
 var api = require('./routes/api');
+var transact = require('./routes/transact');
 var app = express();
 redirect(app);
 //Connect to Mongoose
@@ -35,6 +36,7 @@ app.use('/login',auth);
 app.use('/register',register);
 app.use('/member',member);
 app.use('/api',api);
+app.use('/transact',transact);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
