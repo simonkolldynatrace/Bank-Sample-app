@@ -1242,6 +1242,7 @@ ol.list ol ul ul li:before {
     text-align: center;
     overflow: hidden;
     height: 32px;
+    width: 150px;
     border-style: solid;
     border-radius: 3px;
     border-width: 1px;

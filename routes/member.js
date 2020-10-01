@@ -30,42 +30,35 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/login');
 });
 
-
-//function deposit_func(amount, card, money) {
-//  console.log('DEPOSIT_func')
-//  var newAmount = (money + amount).toString();
-//  var deposit = User.updateOne(
-//  { 'card' : card },
-//  { $set: { 'money' : newAmount } }
-//  );
-//  deposit.exec(function (err, result) {
-//  if (err) return handleError(err);
-//    console.log(result);
-//  });
-//}
-//  
-//router.post('/transact', function(req, res, next) {
-//  console.log('transact working');
-//  var amount = Number(req.body.amount);
-//  var card = req.body.card;
-//  var action = req.body.action;
-//  var money = Number(userdata.money);
-//  console.log(amount+' '+card+' '+action + ' ' +money.toString());
-//    if(action=='DEPOSIT'){
-//      deposit_func(amount, card, money)
-//    };
-//    if(action=='WITHDRAW'){
-//      var newAmount = parseInt(userdata.money) - parseInt(amount);
-//      if(newAmount<0){res.redirect('/member'); return;}
-//      var withdraw = User.updateOne(
-//      { 'card' : card },
-//      { $set: { 'money' : newAmount } }
-//      );
-//      withdraw.exec(function (err, result) {
-//      if (err) return handleError(err);
-//        console.log(result);
-//      });
-//    };
-//    res.redirect('/member');
-//});
+router.post('/transact', function(req, res, next) {
+  console.log('transact working');
+  var amount = req.body.amount;
+  var card = req.body.card;
+  var action = req.body.action;
+  console.log(amount+' '+card+' '+action);
+    if(action=='DEPOSIT'){
+      var newAmount = (parseInt(amount) + parseInt(userdata.money)).toString();
+      var deposit = User.updateOne(
+      { 'card' : card },
+      { $set: { 'money' : newAmount } }
+      );
+      deposit.exec(function (err, result) {
+      if (err) return handleError(err);
+        console.log(result);
+      });
+    };
+    if(action=='WITHDRAW'){
+      var newAmount = parseInt(userdata.money) - parseInt(amount);
+      if(newAmount<0){res.redirect('/member'); return;}
+      var withdraw = User.updateOne(
+      { 'card' : card },
+      { $set: { 'money' : newAmount } }
+      );
+      withdraw.exec(function (err, result) {
+      if (err) return handleError(err);
+        console.log(result);
+      });
+    };
+    res.redirect('/member');
+});
 module.exports = router;

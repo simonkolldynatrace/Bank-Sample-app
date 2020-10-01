@@ -27,5 +27,4 @@ router.get('/user/:card', function(req, res, next) {
   });
 });
 
-
 module.exports = router;
