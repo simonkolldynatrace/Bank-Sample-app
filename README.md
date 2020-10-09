@@ -4,8 +4,6 @@
 
 A simple banking application with node, express and mongo. http://nodebank.herokuapp.com/
 
-![jeffreynerona|nodebank](https://raw.githubusercontent.com/jeffreynerona/node-bank/master/screenshot/nodebank.png)
-
 # Features
 
   - Login and Register
@@ -14,10 +12,8 @@ A simple banking application with node, express and mongo. http://nodebank.herok
 
 # Libraries Used
 
-  - bootstrap 4
   - express
   - express-redirect
-  - cookie-parser
   - ejs
   - mongoose
 
