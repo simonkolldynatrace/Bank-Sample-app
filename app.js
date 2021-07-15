@@ -15,7 +15,7 @@ var api = require('./routes/api');
 var app = express();
 redirect(app);
 //Connect to Mongoose
-mongoose.connect('mongodb://d1pacworkshop:dynatrace@localhost:27017&authSource=admin');
+mongoose.connect('mongodb://d1pacworkshop:dynatrace@3.136.26.31:27017&authSource=admin');
 //mongoose.connect('mongodb://jeffreynerona:VyxfpsiDdWh4oF1I@cluster0-shard-00-00-k7flg.mongodb.net:27017,cluster0-shard-00-01-k7flg.mongodb.net:27017,cluster0-shard-00-02-k7flg.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin');
 var db = mongoose.connection;
 console.log("connection successfull");
